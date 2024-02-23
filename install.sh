@@ -14,15 +14,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 #Pacman dependences
-dependences = (alacritty feh pavucontrol lightdm lightdm-gtk-greeter \
-  redshift xclip neovim gawk grep zip unzip \
-  pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse \
-  wireplumber sxhkd bspwm polybar net-tools lxsession \
-  brightnessctl xorg-xsetroot pidof picom nodejs npm \
-  rofi procps-ng ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-liberation \
-  ttf-liberation-mono-nerd ttf-nerd-fonts-symbols papirus-icon-theme pamixer \
-  zsh zsh-autosuggestions zsh-completions zsh-history-substring-search \
-  zsh-lovers zsh-syntax-highlighting zsh-theme-powerlevel10k xorg-xset)
+dependences = (alacritty feh pavucontrol lightdm lightdm-gtk-greeter redshift xclip neovim gawk grep zip unzip pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse wireplumber sxhkd bspwm polybar net-tools lxsession brightnessctl xorg-xsetroot pidof picom nodejs npm rofi procps-ng ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-liberation ttf-liberation-mono-nerd ttf-nerd-fonts-symbols papirus-icon-theme pamixer zsh zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-lovers zsh-syntax-highlighting zsh-theme-powerlevel10k xorg-xset)
 
 is_installed() {
   pacman -Qi "$1" & > /dev/null
@@ -58,7 +50,7 @@ fi
 
 cp -rf $HOME/mybspwm/config/* $HOME/.config/
 cp $HOME/mybspwm/home/* $HOME/
-
+cp -rf $HOME/mybspwm/home/.wallpapers/ $HOME/
 echo "Copiando archivos a root"
 
 sudo mkdir /root/.config
