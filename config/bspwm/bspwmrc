@@ -1,0 +1,21 @@
+#! /bin/sh
+xsetroot -cursor_name left_ptr &
+#picom &
+pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
+sxhkd &
+$HOME/.config/polybar/launch.sh 
+
+bspc monitor -d 1 2 3 4 5 6 7 8
+
+bspc config border_width            2 
+bspc config window_gap              10
+bspc config split_ratio             0.52
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+bspc config focus_follows_pointer   true
+
+#BSPWM RULES
+bspc rule -a pulsemixer state="float"
+
+#BACKGROUND
+feh --no-fehbg --bg-fill ~/Downloads/sunset-scenary-anime.jpg
