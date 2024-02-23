@@ -14,7 +14,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 #Pacman dependences
-dependences=( alacritty feh pavucontrol lightdm lightdm-gtk-greeter redshift \
+dependences=(alacritty feh pavucontrol lightdm lightdm-gtk-greeter redshift \
   xclip neovim gawk grep zip unzip pipewire pipewire-alsa pipewire-audio \
   pipewire-jack pipewire-pulse wireplumber sxhkd bspwm polybar net-tools \
   lxsession brightnessctl xorg-xsetroot pidof picom nodejs npm rofi \
