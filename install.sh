@@ -14,7 +14,14 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 #Pacman dependences
-dependences = (alacritty feh pavucontrol lightdm lightdm-gtk-greeter redshift xclip neovim gawk grep zip unzip pipewire pipewire-alsa pipewire-audio pipewire-jack pipewire-pulse wireplumber sxhkd bspwm polybar net-tools lxsession brightnessctl xorg-xsetroot pidof picom nodejs npm rofi procps-ng ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-liberation ttf-liberation-mono-nerd ttf-nerd-fonts-symbols papirus-icon-theme pamixer zsh zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-lovers zsh-syntax-highlighting zsh-theme-powerlevel10k xorg-xset)
+dependences=( alacritty feh pavucontrol lightdm lightdm-gtk-greeter redshift \
+  xclip neovim gawk grep zip unzip pipewire pipewire-alsa pipewire-audio \
+  pipewire-jack pipewire-pulse wireplumber sxhkd bspwm polybar net-tools \
+  lxsession brightnessctl xorg-xsetroot pidof picom nodejs npm rofi \
+  procps-ng ttf-iosevka-nerd ttf-jetbrains-mono-nerd ttf-liberation \
+  ttf-liberation-mono-nerd ttf-nerd-fonts-symbols papirus-icon-theme \
+  pamixer zsh zsh-autosuggestions zsh-completions zsh-history-substring-search \
+  zsh-lovers zsh-syntax-highlighting zsh-theme-powerlevel10k xorg-xset)
 
 is_installed() {
   pacman -Qi "$1" & > /dev/null
@@ -23,7 +30,7 @@ is_installed() {
 
 printf "%s%sChecking for required packages...%s\n"
 
-for package in "$dependences[@]"; do
+for package in "${dependences[@]}"; do
   if ! is_installed "$package"; then
     if sudo pacman -S "$package" --noconfirm > /dev/null 2>> errors.log; then
       printf "%s%s%s %shas been installed succesfully.%s\n" "${BLD}" "${CYE}" "$package" "${CBL}" "${CNC}"
@@ -38,7 +45,6 @@ for package in "$dependences[@]"; do
   fi
 done
 sleep 5
-clear
 
 if [ ! -e "$HOME/.config" ]; then
   mkdir $HOME/.config
@@ -49,8 +55,9 @@ fi
 
 
 cp -rf $HOME/mybspwm/config/* $HOME/.config/
-cp $HOME/mybspwm/home/* $HOME/
-cp -rf $HOME/mybspwm/home/.wallpapers/ $HOME/
+cp $HOME/mybspwm/home/.zshrc $HOME/
+cp $HOME/mybspwm/home/.p10k.zsh $HOME/
+cp -rf $HOME/mybspwm/home/.wallpapers $HOME/
 echo "Copiando archivos a root"
 
 sudo mkdir /root/.config
