@@ -18,4 +18,4 @@ bspc config focus_follows_pointer   true
 bspc rule -a pulsemixer state="float"
 
 #BACKGROUND
-feh --no-fehbg --bg-fill ~/Downloads/sunset-scenary-anime.jpg
+feh --no-fehbg --bg-fill ~/.wallpapers/sunset-scenary-anime.jpg
