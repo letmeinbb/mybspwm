@@ -48,9 +48,9 @@ sleep 5
 
 if [ ! -e "$HOME/.config" ]; then
   mkdir $HOME/.config
-  echo "Se creo el directorio .config"
+  echo "succesfully created directory .config"
 else
-  echo "El directorio .config existe"
+  echo "Directory .config doesn't exist"
 fi
 
 
@@ -58,7 +58,7 @@ cp -rf $HOME/mybspwm/config/* $HOME/.config/
 cp $HOME/mybspwm/home/.zshrc $HOME/
 cp $HOME/mybspwm/home/.p10k.zsh $HOME/
 cp -rf $HOME/mybspwm/home/.wallpapers $HOME/
-echo "Copiando archivos a root"
+echo "copying files to root"
 
 sudo mkdir /root/.config
 
@@ -66,7 +66,7 @@ sudo cp -rf $HOME/mybspwm/config/zsh /root/.config/
 sudo ln -s $HOME/.p10k.zsh /root/.p10k.zsh
 sudo ln -s $HOME/.zshrc /root/.zshrc
 
-echo "Instalando zsh"
+echo "Installing zsh"
 if [[ $SHELL != "/usr/bin/zsh" ]]; then
     printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
     chsh -s /usr/bin/zsh
